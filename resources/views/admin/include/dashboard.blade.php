@@ -1,0 +1,1 @@
+@include('admin.include.dashboard.dashboard')
