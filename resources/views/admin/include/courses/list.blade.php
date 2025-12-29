@@ -4,7 +4,7 @@
               <div class="row">
                 <div class="col-6">
                   <h4>
-                     Services
+                     Courses
                     </h4>
                 </div>
                 <div class="col-6">
@@ -14,7 +14,7 @@
                           <use href="{{asset('admin/svg/icon-sprite.svg#stroke-home')}}"></use>
                         </svg></a>
                     </li>
-                    <li class="breadcrumb-item active">Services</li>
+                    <li class="breadcrumb-item active">Courses</li>
                   </ol>
                 </div>
               </div>
@@ -28,34 +28,31 @@
                   <div class="card-body">
                     <div class="list-product-header">
                       <div>
-                        <a class="btn btn-primary" href="/portal/services/add"><i class="fa fa-plus"></i>Add Service</a>
+                        <a class="btn btn-primary" href="/portal/courses/add"><i class="fa fa-plus"></i>Add Course</a>
                       </div>
                     </div>
                     <div class="list-product">
                       <table class="table">
                         <thead>
                             <tr>
-                                <th width="70%">Service</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th width="70%">Course</th>
+                                <th width="10%">Status</th>
+                                <th width="10%">Action</th>
                             </tr>
                         </thead>
-
                         <tbody>
-                            @forelse($services as $service)
+                            @forelse($courses as $course)
                                 <tr>
                                     <td class="d-flex align-items-center gap-3">
-                                        @if($service->image)
-                                            <img src="{{ asset($service->image) }}" class="rounded" style="border: 2px solid black" width="60">
+                                        @if($course->image)
+                                            <img src="{{ asset($course->image) }}" class="rounded" style="border: 2px solid black" width="60">
                                         @endif
-                                        <strong>{{ $service->name }}</strong>
+                                        <strong>{{ $course->name }}</strong>
                                     </td>
-
-                                    <td>{!! get_status($service->status) !!}</td>
-
+                                    <td>{!! get_status($course->status) !!}</td>
                                     <td class="d-flex gap-2">
                                         <div class="product-action">
-                                          <a href="{{ url('/portal/services/edit/'.$service->id) }}"
+                                          <a href="{{ url('/portal/courses/edit/'.$course->id) }}"
                                             class="action-btn edit-btn"
                                             title="Edit">
                                               <svg>
@@ -63,8 +60,8 @@
                                               </svg>
                                           </a>
                                           
-                                          <form action="{{ route('admin.services.delete', $service->id) }}" method="POST"
-                                                onsubmit="return confirm('Delete this service?')" style="display:inline;">
+                                          <form action="{{ route('admin.courses.delete', $course->id) }}" method="POST"
+                                                onsubmit="return confirm('Delete this course?')" style="display:inline;">
                                               @csrf
                                               @method('DELETE')
                                               <button class="action-btn delete-btn border-0" title="Delete">
@@ -79,12 +76,13 @@
                             @empty
                                 <tr>
                                     <td colspan="3" class="text-center text-muted">
-                                        <strong>No service found</strong>
+                                        <strong>No course found</strong>
                                     </td>
                                 </tr>
                             @endforelse
                         </tbody>
                       </table>
+
                     </div>
                   </div>
                 </div>

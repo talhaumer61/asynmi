@@ -1,14 +1,14 @@
         <div class="sidebar-wrapper" data-layout="stroke-svg">
-          <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="{{asset('admin/images/logo/logo.png')}}" alt=""></a>
+          <div class="logo-wrapper"><a href="/portal/dashboard"><img class="img-fluid" src="{{asset('assets/img/logo.png')}}" style="height: 50px;" alt=""></a>
             <div class="back-btn"><i class="fa fa-angle-left"> </i></div>
             <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
           </div>
-          <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid" src="{{asset('admin/images/logo/logo-icon.png')}}" alt=""></a></div>
+          <div class="logo-icon-wrapper"><a href="/portal/dashboard"><img class="img-fluid" src="{{asset('assets/img/logo.png')}}" style="height: 35px;" alt=""></a></div>
           <nav class="sidebar-main">
             <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
             <div id="sidebar-menu">
               <ul class="sidebar-links" id="simple-bar">
-                <li class="back-btn"><a href="index.html"><img class="img-fluid" src="{{asset('admin/images/logo/logo-icon.png')}}" alt=""></a>
+                <li class="back-btn"><a href="/portal/dashboard"><img class="img-fluid" src="{{asset('assets/img/logo.png')}}" style="height: 35px;" alt=""></a>
                   <div class="mobile-back text-end"> <span>Back </span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                 </li>
                 <li class="pin-title sidebar-main-title">
@@ -63,6 +63,33 @@
                     <svg class="fill-icon">
                       <use href="{{asset('admin/svg/icon-sprite.svg#stroke-layout')}}"></use>
                     </svg><span>Blogs</span></a>
+                </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title link-nav" href="/portal/courses">
+                    <svg class="stroke-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-task')}}"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-task')}}"></use>
+                    </svg><span>Courses</span></a>
+                </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title link-nav" href="/portal/countries">
+                    <svg class="stroke-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-maps')}}"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-maps')}}"></use>
+                    </svg><span>Countries</span></a>
+                </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title link-nav" href="/portal/universities">
+                    <svg class="stroke-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-project')}}"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-project')}}"></use>
+                    </svg><span>Universities</span></a>
                 </li>
               </ul>
               <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

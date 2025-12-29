@@ -78,14 +78,12 @@
                                                     onsubmit="return confirm('Delete this blog?')" style="display:inline;">
                                                   @csrf
                                                   @method('DELETE')
-                                                  <button class="action-btn delete-btn" title="Delete">
+                                                  <button class="action-btn delete-btn border-0" title="Delete">
                                                       <svg>
                                                           <use href="{{ asset('admin/svg/icon-sprite.svg#trash1') }}"></use>
                                                       </svg>
                                                   </button>
                                               </form>
-
-
                                           </div>
                                       </td>
                                   </tr>

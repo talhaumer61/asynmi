@@ -1,95 +1,4 @@
-/*===========================
-Project Name: TripRex - Tour & Travel Agency  HTML Template
-Author: Egens Lab --> (https://www.egenslab.com/)
-Support: https://egenslab.desky.support/
-Version: 1.0
 
-1.COMMON CSS 
-2. Mixins Css
-3. Global Css
-4. Topbar
-5. Header
-6.Home1 Banner section
-7.Home1 About section
-8.Home1 Facility section
-9.Home1 Package Card section
-10.Home1 Feature Card section
-11.Home1 Package Card Tab section
-12.Home1 Activities Verticle Tab section
-13.Home1 Banner2 section
-14.Home1 Testimonial section
-15.Home1 Blog section
-16.Home1 Visa section
-17.Home1 Banner3 section
-18.Home1 Footer section
-19.Home2 banner section
-20.Destination Card Slider Section
-21.Tour Pack Section
-22.Home2 About Section
-23.Home2 Activities Section
-24.Home2 banner4 Section
-25.Home2 Testimonial Section
-26.Home2 Teams Section
-27.Home2 Video Section
-28.Home2 Newsletter Section
-29.Home3 banner section
-30.Home3 About section
-31.Home3 Destination Dropdown section
-32.Home3 Tour pack section
-33.Home3 Accordion With Tab section
-34.Home3 Activities section
-35 .Home3 Teams section
-36 .Home3 Tour Type section
-37 .Home3 Testimonial section
-38 .Home3 Teams section
-39 .Home3 Instagram Slider section
-40 .Home4 Banner section
-41 .Home4 destination Card Slider section
-42 .Home4 about section
-43 .Home4 Banner2 section
-44 .Home4 Tour Pack section
-45 .Home4 Activities tab With Slider section
-46 .Home4 Banner With Package-card Slider section
-47 .Home4 Feature-card section
-48 .Home4 Visa Application section
-49 .Home4 Testimonial section
-50 .Home4 Blog section
-51 .Home4 Activity Counter section
-52 .Home5 Banner section
-53 .Home5 Activity section
-54 .Home5 About section
-55 .Home5 Destination Card Slider section
-56 .Home5 Feature section
-57 .Home5 Banner2 SLider section
-58 .Home5 Testimonial section
-59 .Home5 Visa Application section
-60 .Home5 Teams section
-61 .Home5 Newsletter section
-62 .Home6 Banner section
-63 .Home6 Category card Slider section
-64 .Home6 Destination Card Slider section
-65 .Home6 About section
-66 .Home6 Tour pack section
-67 .Home6 Activities section
-68  .Home6 Banner2 section
-69  .Home6 Feature section
-70 .Home6 Visa Application section
-71 .Home6 Testimonial section
-72 . Destination Details Page
-73 . Error Page
-74 . Faq Page
-75 . contact Page
-76 . Blog Grid Page
-77 . Blog Sidebar Page
-78 . Blog Standard Page
-79 . Package Category Page
-80 . Package Top Search Page
-81 . Blog Details Page
-82 . Package Grid With Sidebar Page
-===========================*/
-/*===========================
-     01.COMMON CSS 
-===========================*/
 @import url("../../../../../css2");
 * {
   margin: 0;
@@ -683,57 +592,39 @@ ul {
 }
 
 .primary-btn1 {
-  border-radius: 5px;
   background-color: var(--primary-color1);
+  color: var(--white-color);
   font-family: var(--font-rubik);
   font-weight: 600;
   font-size: 16px;
-  color: var(--white-color);
-  letter-spacing: 0.48px;
-  text-transform: capitalize;
-  line-height: 1;
   padding: 16px 34px;
+  border-radius: 6px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  transition: 0.5s;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  white-space: nowrap;
+  transition: 
+    background-color 0.4s ease,
+    border-radius 0.4s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
+
 .primary-btn1 svg {
   fill: var(--white-color);
-  transition: 0.5s;
+  transition: transform 0.3s ease;
 }
-.primary-btn1::after {
-  position: absolute;
-  content: "";
-  display: block;
-  left: 15%;
-  right: -20%;
-  top: -4%;
-  height: 150%;
-  width: 150%;
-  bottom: 0;
-  border-radius: 2px;
-  background-color: var(--primary-color2);
-  transform: skewX(45deg) scale(0, 1);
-  z-index: -1;
-  transition: all 0.5s ease-out 0s;
-}
+
 .primary-btn1:hover {
-  color: var(--title-color);
+  background-color: var(--primary-color2);
+  border-radius: 50px; /* capsule effect */
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
+
 .primary-btn1:hover svg {
-  fill: var(--white-color);
+  transform: translateX(4px);
 }
-.primary-btn1:hover::after {
-  transform: skewX(45deg) scale(1, 1);
-}
-.primary-btn1.two {
-  border-radius: unset;
-}
+
 
 .primary-btn2 {
   border-radius: 5px;
@@ -23095,7 +22986,7 @@ header.style-3.four .nav-right .icon-list li:first-child svg {
 }
 
 .product-card {
-  border: 1px solid #ececec;
+  border: 2px solid #ececec;
   padding: 15px;
   transition: 0.5s;
   position: relative;
@@ -23195,8 +23086,8 @@ header.style-3.four .nav-right .icon-list li:first-child svg {
 .product-card .product-card-content h6 a {
   color: var(--title-color);
   font-size: 20px;
+  font-weight: bold;
   font-family: var(--font-rubik);
-  font-weight: 500;
   letter-spacing: 0.4px;
   text-transform: capitalize;
   margin-bottom: 5px;
@@ -29352,4 +29243,8 @@ header.style-3.four .nav-right .icon-list li:first-child svg {
 .uni-points-head i {
   color: var(--primary-color1);
   font-size: 24px;
+}
+.process-box{
+  background-color: var(--primary-color1);
+  color: var(--white-color);
 }

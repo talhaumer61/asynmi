@@ -4,16 +4,16 @@
               <div class="row">
                 <div class="col-6">
                   <h4>
-                     Add Service</h4>
+                    Edit Course</h4>
                 </div>
                 <div class="col-6">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">                                       
+                    <li class="breadcrumb-item"><a href="/portal/dashboard">                                       
                         <svg class="stroke-icon">
                           <use href="{{asset('admin/svg/icon-sprite.svg#stroke-home')}}"></use>
                         </svg></a></li>
                     <li class="breadcrumb-item">Dashboard</li>
-                    <li class="breadcrumb-item active">Services</li>
+                    <li class="breadcrumb-item active">Courses</li>
                   </ol>
                 </div>
               </div>

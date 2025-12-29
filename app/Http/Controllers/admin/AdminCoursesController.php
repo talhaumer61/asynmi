@@ -3,55 +3,57 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class AdminServicesController extends Controller
+class AdminCoursesController extends Controller
 {
     public function index($action = null, $id = null)
     {
-        $service = null;
-        $services = Service::latest()->get();
+        $course = null;
+        $courses = Course::latest()->get();
 
         if ($action === 'edit' && $id) {
-            $service = Service::findOrFail($id);
+            $course = Course::findOrFail($id);
         }
 
-        return view('admin.services', compact('action', 'services', 'service'));
+        return view('admin.courses', compact('action', 'courses', 'course'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'name'   => 'required|string|max:255',
-            'image'  => 'nullable|image|mimes:jpg,jpeg,png,svg|max:2048',
-            'status' => 'required|boolean',
+            'name'     => 'required|string|max:255',
+            'image'    => 'nullable|image|mimes:jpg,jpeg,png,svg|max:2048',
+            'overview' => 'nullable|string',
+            'detail'   => 'nullable|string',
+            'status'   => 'required|boolean',
         ]);
 
         $imagePath = null;
         if ($request->hasFile('image')) {
             $imageName = time().'_'.$request->image->getClientOriginalName();
-            $request->image->move(upload_path('services'), $imageName);
-            $imagePath = 'uploads/services/'.$imageName;
+            $request->image->move(upload_path('courses'), $imageName);
+            $imagePath = 'uploads/courses/'.$imageName;
         }
 
-        Service::create([
+        Course::create([
             'name'     => $request->name,
             'href'     => Str::slug($request->name),
+            'image'    => $imagePath,
             'overview' => $request->overview,
             'detail'   => $request->detail,
-            'image'    => $imagePath,
             'status'   => $request->status,
         ]);
 
-        sessionMsg('Success', 'Service added successfully', 'success');
-        return redirect()->route('admin.services');
+        sessionMsg('Success', 'Course added successfully', 'success');
+        return redirect()->route('admin.courses');
     }
 
     public function update(Request $request, $id)
     {
-        $service = Service::findOrFail($id);
+        $course = Course::findOrFail($id);
 
         $request->validate([
             'name'   => 'required|string|max:255',
@@ -61,11 +63,11 @@ class AdminServicesController extends Controller
 
         if ($request->hasFile('image')) {
             $imageName = time().'_'.$request->image->getClientOriginalName();
-            $request->image->move(upload_path('services'), $imageName);
-            $service->image = 'uploads/services/'.$imageName;
+            $request->image->move(upload_path('courses'), $imageName);
+            $course->image = 'uploads/courses/'.$imageName;
         }
 
-        $service->update([
+        $course->update([
             'name'     => $request->name,
             'href'     => Str::slug($request->name),
             'overview' => $request->overview,
@@ -73,14 +75,15 @@ class AdminServicesController extends Controller
             'status'   => $request->status,
         ]);
 
-        sessionMsg('Success', 'Service updated successfully', 'success');
-        return redirect()->route('admin.services');
+        sessionMsg('Success', 'Course updated successfully', 'success');
+        return redirect()->route('admin.courses');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
-        Service::findOrFail($id)->delete(); // soft delete
-        sessionMsg('danger', 'Service removed successfully', 'danger');
+        Course::findOrFail($id)->delete();
+
+        sessionMsg('danger', 'Course deleted successfully!', 'danger');
         return redirect()->back();
     }
 }

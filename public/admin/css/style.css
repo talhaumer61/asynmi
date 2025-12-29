@@ -21881,6 +21881,7 @@ p.data-attributes svg {
 
 .table thead th {
   border-bottom: 2px solid #ecf3fa;
+  font-weight: bold;
 }
 
 @media (max-width: 1712px) {

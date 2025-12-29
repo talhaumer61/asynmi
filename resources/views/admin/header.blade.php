@@ -15,7 +15,7 @@
                 </div>
             </form>
             <div class="header-logo-wrapper col-auto p-0">  
-                <div class="logo-wrapper"> <a href="index.html"><img class="img-fluid for-light" src="{{asset('admin/assets/images/logo/logo_dark.png')}}" alt="logo-light"><img class="img-fluid for-dark" src="{{asset('admin/assets/images/logo/logo.png')}}" alt="logo-dark"></a></div>
+                <div class="logo-wrapper"> <a href="index.html"><img class="img-fluid for-light" src="{{asset('assets/img/logo.png')}}" alt="logo-light"><img class="img-fluid for-dark" src="{{asset('assets/img/logo.png')}}" alt="logo-dark"></a></div>
                 <div class="toggle-sidebar"> <i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
             </div>
             <div class="nav-right col-xxl-7 col-xl-6 col-md-7 col-8 pull-right right-header p-0 ms-auto">

@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\admin\AdminBlogsController;
+use App\Http\Controllers\admin\AdminCountriesController;
+use App\Http\Controllers\admin\AdminCoursesController;
 use App\Http\Controllers\admin\AdminServicesController;
+use App\Http\Controllers\admin\AdminUniversitiesController;
 use App\Http\Controllers\site\AboutController;
 use App\Http\Controllers\site\BlogsController;
 use App\Http\Controllers\site\ContactController;
@@ -35,13 +38,31 @@ Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us
 Route::prefix('portal')->group(function () {
     // Here you can include your admin routes, for example:
     Route::get('/dashboard', fn() => view('admin.dashboard'))->name('admin.dashboard');
-    Route::get('/services/{action?}/{href?}', [AdminServicesController::class, 'index'])->name('admin.services');
     
+    Route::get('/services/{action?}/{id?}', [AdminServicesController::class, 'index'])->name('admin.services');
+    Route::post('/services/store', [AdminServicesController::class, 'store'])->name('admin.services.store');
+    Route::post('/services/update/{id}', [AdminServicesController::class, 'update'])->name('admin.services.update');
+    Route::delete('/services/{id}', [AdminServicesController::class, 'delete'])->name('admin.services.delete');
+
     Route::get('/blogs/{action?}/{id?}', [AdminBlogsController::class, 'index'])->name('admin.blogs');
     Route::post('/blogs/store', [AdminBlogsController::class, 'store'])->name('admin.blogs.store');
     Route::post('/blogs/update/{id}', [AdminBlogsController::class, 'update'])->name('admin.blogs.update');
     Route::delete('/blogs/{id}', [AdminBlogsController::class, 'destroy'])->name('admin.blogs.delete');
 
+    Route::get('/courses/{action?}/{id?}', [AdminCoursesController::class, 'index'])->name('admin.courses');
+    Route::post('/courses/store', [AdminCoursesController::class, 'store'])->name('admin.courses.store');
+    Route::post('/courses/update/{id}', [AdminCoursesController::class, 'update'])->name('admin.courses.update');
+    Route::delete('/course/{id}', [AdminCoursesController::class, 'destroy'])->name('admin.courses.delete');
+
+    Route::get('/countries/{action?}/{id?}', [AdminCountriesController::class, 'index'])->name('admin.countries');
+    Route::post('/countries/store', [AdminCountriesController::class, 'store'])->name('admin.countries.store');
+    Route::post('/countries/update/{id}', [AdminCountriesController::class, 'update'])->name('admin.countries.update');
+    Route::delete('/countries/{id}', [AdminCountriesController::class, 'delete'])->name('admin.countries.delete');
+
+    Route::get('/universities/{action?}/{id?}', [AdminUniversitiesController::class, 'index'])->name('admin.universities');
+    Route::post('/universities/store', [AdminUniversitiesController::class, 'store'])->name('admin.universities.store');
+    Route::post('/universities/update/{id}', [AdminUniversitiesController::class, 'update'])->name('admin.universities.update');
+    Route::delete('/universities/{id}', [AdminUniversitiesController::class, 'delete'])->name('admin.universities.delete');
 });
 
 

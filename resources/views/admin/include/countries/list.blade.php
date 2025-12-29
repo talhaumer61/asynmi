@@ -4,7 +4,7 @@
               <div class="row">
                 <div class="col-6">
                   <h4>
-                     Services
+                     Countries
                     </h4>
                 </div>
                 <div class="col-6">
@@ -14,7 +14,7 @@
                           <use href="{{asset('admin/svg/icon-sprite.svg#stroke-home')}}"></use>
                         </svg></a>
                     </li>
-                    <li class="breadcrumb-item active">Services</li>
+                    <li class="breadcrumb-item active">Countries</li>
                   </ol>
                 </div>
               </div>
@@ -28,34 +28,42 @@
                   <div class="card-body">
                     <div class="list-product-header">
                       <div>
-                        <a class="btn btn-primary" href="/portal/services/add"><i class="fa fa-plus"></i>Add Service</a>
+                        <a class="btn btn-primary" href="/portal/countries/add"><i class="fa fa-plus"></i>Add Country</a>
                       </div>
                     </div>
                     <div class="list-product">
-                      <table class="table">
+                      <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th width="70%">Service</th>
+                                <th>Country</th>
+                                <th>Currency</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @forelse($services as $service)
+                            @forelse($countries as $country)
                                 <tr>
                                     <td class="d-flex align-items-center gap-3">
-                                        @if($service->image)
-                                            <img src="{{ asset($service->image) }}" class="rounded" style="border: 2px solid black" width="60">
+                                        @if($country->image)
+                                            <img src="{{ asset($country->image) }}" width="50">
                                         @endif
-                                        <strong>{{ $service->name }}</strong>
+                                        <strong>{{ $country->name }}</strong>
+                                        <span class="text-muted">({{ $country->country_code }})</span>
                                     </td>
 
-                                    <td>{!! get_status($service->status) !!}</td>
+                                    <td>
+                                        {{ $country->currency_symbol }}
+                                        {{ $country->currency }}
+                                        ({{ $country->currency_code }})
+                                    </td>
+
+                                    <td>{!! get_status($country->status) !!}</td>
 
                                     <td class="d-flex gap-2">
                                         <div class="product-action">
-                                          <a href="{{ url('/portal/services/edit/'.$service->id) }}"
+                                          <a href="{{ url('/portal/countries/edit/'.$country->id) }}"
                                             class="action-btn edit-btn"
                                             title="Edit">
                                               <svg>
@@ -63,8 +71,8 @@
                                               </svg>
                                           </a>
                                           
-                                          <form action="{{ route('admin.services.delete', $service->id) }}" method="POST"
-                                                onsubmit="return confirm('Delete this service?')" style="display:inline;">
+                                          <form action="{{ route('admin.countries.delete', $country->id) }}" method="POST"
+                                                onsubmit="return confirm('Delete this country?')" style="display:inline;">
                                               @csrf
                                               @method('DELETE')
                                               <button class="action-btn delete-btn border-0" title="Delete">
@@ -78,8 +86,8 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="3" class="text-center text-muted">
-                                        <strong>No service found</strong>
+                                    <td colspan="4" class="text-center text-muted">
+                                        <strong>No country found</strong>
                                     </td>
                                 </tr>
                             @endforelse

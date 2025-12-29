@@ -25,61 +25,45 @@
               <div class="col-sm-12">
                 <div class="card">
                   <div class="card-body">
-                    <div class="form theme-form">
+                    <form action="{{ route('admin.services.update', $service->id) }}" method="POST" enctype="multipart/form-data">
+                      @csrf
+
                       <div class="row">
-                        <div class="col">
-                          <div class="mb-3">
-                            <label>Project Title</label>
-                            <input class="form-control" type="text" placeholder="Project name *">
-                          </div>
+                        <div class="col mb-3">
+                            <label>Name</label>
+                            <input type="text" name="name" value="{{ $service->name }}" class="form-control">
+                        </div>
+  
+                        <div class="col mb-3">
+                            <label>Status</label>
+                            <select name="status" class="form-select">
+                                <option value="1" {{ $service->status ? 'selected' : '' }}>Active</option>
+                                <option value="0" {{ !$service->status ? 'selected' : '' }}>Inactive</option>
+                            </select>
                         </div>
                       </div>
-                      <div class="row">
-                        <div class="col">
-                            <div class="mb-3">
-                                <label>Status</label>
-                                <select name="status" class="form-select">
-                                    <option value="1" selected>Active</option>
-                                    <option value="0">Inactive</option>
-                                </select>
-                            </div>
-                        </div>
+
+                      <div class="mb-3">
+                          <label>Overview</label>
+                          <textarea name="overview" class="form-control">{{ $service->overview }}</textarea>
                       </div>
-                      <div class="row">
-                        <div class="col">
-                          <div class="mb-3">
-                            <label>Enter some Details</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
-                          </div>
-                        </div>
+
+                      <div class="mb-3">
+                          <label>Detail</label>
+                          <textarea name="detail" class="form-control" id="ckeditor">{{ $service->detail }}</textarea>
                       </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="fake-dropzone text-center mb-3">
-                                    <i class="bx bxs-cloud-upload"></i>
-                                    <h6>Upload Service Icon</h6>
-                                    <input 
-                                        type="file" 
-                                        class="form-control mt-3" 
-                                        name="icon" 
-                                        accept=".jpg,.jpeg,.png,.svg">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label>Description</label>
-                                    <textarea class="form-control" name="use_cases" id="ckeditor" rows="3" placeholder="Describe use cases"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                      <div class="row">
-                        <div class="col">
-                          <div class="text-end"><a class="btn btn-success me-3" href="#">Add</a><a class="btn btn-danger" href="#">Cancel</a></div>
-                        </div>
+
+                      <div class="mb-3">
+                          <label>Image</label><br>
+                          @if($service->image)
+                              <img src="{{ asset($service->image) }}" width="80"><br><br>
+                          @endif
+                          <input type="file" name="image" class="form-control">
                       </div>
-                    </div>
+
+                      <button class="btn btn-success">Update Service</button>
+                      <a href="{{ route('admin.services') }}" class="btn btn-danger">Cancel</a>
+                    </form>
                   </div>
                 </div>
               </div>
