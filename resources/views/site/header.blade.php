@@ -40,7 +40,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <!-- Title -->
     <title>{{ $pageTitle }} - ASYNMI</title>
-    <link rel="icon" href="{{asset('assets/img/sm-logo.svg')}}" type="image/gif" sizes="20x20">
+    <link rel="icon" href="{{asset('assets/img/favicon.png')}}" type="image/gif" sizes="20x20">
 </head>
 
 <body>

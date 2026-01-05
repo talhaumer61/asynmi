@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\admin\AdminAboutUsController;
+use App\Http\Controllers\admin\AdminAppointmentController;
 use App\Http\Controllers\admin\AdminBlogsController;
+use App\Http\Controllers\admin\AdminContactInfoController;
 use App\Http\Controllers\admin\AdminCountriesController;
 use App\Http\Controllers\admin\AdminCoursesController;
+use App\Http\Controllers\admin\AdminEventsController;
 use App\Http\Controllers\admin\AdminServicesController;
 use App\Http\Controllers\admin\AdminUniversitiesController;
 use App\Http\Controllers\site\AboutController;
+use App\Http\Controllers\site\AppointmentController;
 use App\Http\Controllers\site\BlogsController;
 use App\Http\Controllers\site\ContactController;
 use App\Http\Controllers\site\CountriesController;
@@ -33,6 +38,10 @@ Route::get('/about-us', [AboutController::class, 'index'])->name('about-us');
 
 // CONTACT US
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us');
+
+// APPOINTMENT
+Route::get('/book-an-appointment', [AppointmentController::class, 'index'])->name('appointment');
+Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
 
 // ADMIN ROUTES
 Route::prefix('portal')->group(function () {
@@ -63,6 +72,27 @@ Route::prefix('portal')->group(function () {
     Route::post('/universities/store', [AdminUniversitiesController::class, 'store'])->name('admin.universities.store');
     Route::post('/universities/update/{id}', [AdminUniversitiesController::class, 'update'])->name('admin.universities.update');
     Route::delete('/universities/{id}', [AdminUniversitiesController::class, 'delete'])->name('admin.universities.delete');
+
+    Route::get('/events/{action?}/{id?}', [AdminEventsController::class, 'index'])->name('admin.events');
+    Route::post('/events/store', [AdminEventsController::class, 'store'])->name('admin.events.store');
+    Route::post('/events/update/{id}', [AdminEventsController::class, 'update'])->name('admin.events.update');
+    Route::delete('/event/{id}', [AdminEventsController::class, 'destroy'])->name('admin.events.delete');
+
+    Route::get('/appointments', [AdminAppointmentController::class, 'index'])->name('admin.appointments');
+    Route::get('/appointments/{id}', [AdminAppointmentController::class, 'show'])->name('admin.appointments.show');
+
+    Route::get('/contact-info/{action?}', [AdminContactInfoController::class, 'index'])->name('admin.contact-info');
+    Route::post('/contact-info/store', [AdminContactInfoController::class, 'store'])->name('admin.contact-info.store');
+    Route::post('/contact-info/update/{id}', [AdminContactInfoController::class, 'update'])->name('admin.contact-info.update');
+
+    Route::get('/about-us/{action?}/{id?}', [AdminAboutUsController::class, 'index'])
+        ->name('admin.about');
+
+    Route::post('/about-us/store', [AdminAboutUsController::class, 'store'])
+        ->name('admin.about.store');
+
+    Route::post('/about-us/update/{id}', [AdminAboutUsController::class, 'update'])
+        ->name('admin.about.update');
 });
 
 
