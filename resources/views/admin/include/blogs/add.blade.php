@@ -56,7 +56,7 @@
                           <div class="col">
                               <div class="fake-dropzone text-center mb-3">
                                   <i class="bx bxs-cloud-upload"></i>
-                                  <h6>Upload Service Icon</h6>
+                                  <h6>Upload Blog Image</h6>
                                   <input type="file" class="form-control mt-3" name="image" accept=".jpg,.jpeg,.png,.svg">
                               </div>
                           </div>

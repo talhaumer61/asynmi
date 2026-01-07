@@ -15,92 +15,24 @@
                     <div class="col-lg-12">
                         <div class="nav nav-pills" id="pills-tab3" role="tablist">
                             <div class="swiper tour-tab-slider swiper-initialized swiper-horizontal swiper-backface-hidden">
-                                <div class="swiper-wrapper" id="swiper-wrapper-9fe7d8d512e3c101c" aria-live="polite" style="transition-duration: 0ms; transform: translate3d(-226.2px, 0px, 0px); transition-delay: 0ms;">
-                                    <div class="swiper-slide swiper-slide-prev" role="group" aria-label="1 / 7" style="width: 211.2px; margin-right: 15px;">
-                                        <div class="nav-item" role="presentation">
-                                            <div class="nav-link active" id="adventure-tab" data-bs-toggle="pill" data-bs-target="#adventure" role="tab" aria-controls="adventure" aria-selected="true">
-                                                <div class="icon">
-                                                    <img src="{{asset('assets/img/universities/1.png')}}" class="partner-logo" alt="">
+                                <div class="swiper-wrapper">
+                                    @foreach($partners as $index => $partner)
+                                        <div class="swiper-slide">
+                                            <div class="nav-item" role="presentation">
+                                                <div class="nav-link {{ $index === 0 ? 'active' : '' }}">
+                                                    <div class="icon">
+                                                        <img 
+                                                            src="{{ asset($partner->logo) }}" 
+                                                            class="partner-logo"
+                                                            alt="{{ $partner->name }}"
+                                                        >
+                                                    </div>
                                                 </div>
-                                                {{-- <div class="content">
-                                                    <h5>Adventure Tours</h5>
-                                                </div> --}}
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="swiper-slide swiper-slide-active" role="group" aria-label="2 / 7" style="width: 211.2px; margin-right: 15px;">
-                                        <div class="nav-item" role="presentation">
-                                            <div class="nav-link" id="cultural-tour-tab" data-bs-toggle="pill" data-bs-target="#cultural-tour" role="tab" aria-controls="cultural-tour" aria-selected="false" tabindex="-1">
-                                                <div class="icon">
-                                                    <img src="{{asset('assets/img/universities/2.png')}}" class="partner-logo" alt="">
-                                                </div>
-                                                {{-- <div class="content">
-                                                    <h5>Cultural Tours</h5>
-                                                </div> --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide swiper-slide-next" role="group" aria-label="3 / 7" style="width: 211.2px; margin-right: 15px;">
-                                        <div class="nav-item" role="presentation">
-                                            <div class="nav-link" id="wildlife-tab" data-bs-toggle="pill" data-bs-target="#wildlife" role="tab" aria-controls="wildlife" aria-selected="false" tabindex="-1">
-                                                <div class="icon">
-                                                    <img src="{{asset('assets/img/universities/3.png')}}" class="partner-logo" alt="">
-                                                </div>
-                                                {{-- <div class="content">
-                                                    <h5>Wildlife &amp; Safari</h5>
-                                                </div> --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" role="group" aria-label="4 / 7" style="width: 211.2px; margin-right: 15px;">
-                                        <div class="nav-item" role="presentation">
-                                            <div class="nav-link" id="historical-tab" data-bs-toggle="pill" data-bs-target="#historical" role="tab" aria-controls="historical" aria-selected="false" tabindex="-1">
-                                                <div class="icon">
-                                                    <img src="{{asset('assets/img/universities/4.png')}}" class="partner-logo" alt="">
-                                                </div>
-                                                {{-- <div class="content">
-                                                    <h5>Historical Tours</h5>
-                                                </div> --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" role="group" aria-label="5 / 7" style="width: 211.2px; margin-right: 15px;">
-                                        <div class="nav-item" role="presentation">
-                                            <div class="nav-link" id="private-tab" data-bs-toggle="pill" data-bs-target="#private" role="tab" aria-controls="private" aria-selected="false" tabindex="-1">
-                                                <div class="icon">
-                                                    <img src="{{asset('assets/img/universities/5.png')}}" class="partner-logo" alt="">
-                                                </div>
-                                                {{-- <div class="content">
-                                                    <h5>Private Tours</h5>
-                                                </div> --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" role="group" aria-label="6 / 7" style="width: 211.2px; margin-right: 15px;">
-                                        <div class="nav-item" role="presentation">
-                                            <div class="nav-link" id="road-trip-tab" data-bs-toggle="pill" data-bs-target="#road-trip" role="tab" aria-controls="road-trip" aria-selected="false" tabindex="-1">
-                                                <div class="icon">
-                                                    <img src="{{asset('assets/img/universities/6.png')}}" class="partner-logo" alt="">
-                                                </div>
-                                                {{-- <div class="content">
-                                                    <h5>Road Trips</h5>
-                                                </div> --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide" role="group" aria-label="7 / 7" style="width: 211.2px; margin-right: 15px;">
-                                        <div class="nav-item" role="presentation">
-                                            <div class="nav-link" id="citytour-tab" data-bs-toggle="pill" data-bs-target="#citytour" role="tab" aria-controls="citytour" aria-selected="false" tabindex="-1">
-                                                <div class="icon">
-                                                    <img src="{{asset('assets/img/universities/7.png')}}" class="partner-logo" alt="">
-                                                </div>
-                                                {{-- <div class="content">
-                                                    <h5>City Tours</h5>
-                                                </div> --}}
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
+                            
                             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
                             <div class="slider-btn-grp4">
                                 <div class="slider-btn tour-tab-slider-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-9fe7d8d512e3c101c" aria-disabled="false">

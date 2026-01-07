@@ -127,6 +127,33 @@
                       <use href="{{asset('admin/svg/icon-sprite.svg#stroke-search')}}"></use>
                     </svg><span>About Us</span></a>
                 </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title link-nav" href="/portal/banners">
+                    <svg class="stroke-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-blog')}}"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-blog')}}"></use>
+                    </svg><span>Banners</span></a>
+                </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title link-nav" href="/portal/ads">
+                    <svg class="stroke-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-icons')}}"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-icons')}}"></use>
+                    </svg><span>Advertisements</span></a>
+                </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title link-nav" href="/portal/partners">
+                    <svg class="stroke-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-user')}}"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-user')}}"></use>
+                    </svg><span>Partners</span></a>
+                </li>
               </ul>
               <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
             </div>

@@ -1,15 +1,30 @@
 <div class="home2-blog-section mb-120">
     <div class="container">
-        <div class="row mb-50">
-            <div class="row g-lg-4 gy-5">
-                <div class="col-lg-6">
-                    <a href="#" class="special-card-img"><img src="{{asset('assets/img/cards/1.png')}}" alt=""></a>
-                </div>
-                <div class="col-lg-6">
-                    <a href="#" class="special-card-img"><img src="{{asset('assets/img/cards/2.jpg')}}" alt=""></a>
+        @if($ads->count())
+            <div class="row mb-50">
+                <div class="row g-lg-4 gy-5">
+
+                    @foreach($ads as $ad)
+                        <div class="{{ $ads->count() == 1 ? 'col-lg-12' : 'col-lg-6' }}">
+                            <a 
+                                href="{{ $ad->url ?? 'javascript:void(0)' }}"
+                                class="special-card-img"
+                                {{ $ad->url ? 'target=_blank' : '' }}
+                            >
+                                <img 
+                                    src="{{ asset($ad->image) }}" 
+                                    class="w-100 rounded"
+                                    alt="Advertisement"
+                                    style="object-fit: cover;"
+                                >
+                            </a>
+                        </div>
+                    @endforeach
+
                 </div>
             </div>
-        </div>
+        @endif
+
         <div class="row mb-50">
             <div class="row g-lg-4 gy-5">
                 <div class="section-title2 text-center">

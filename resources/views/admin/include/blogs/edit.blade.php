@@ -51,12 +51,18 @@
                           <textarea name="detail" class="form-control" id="ckeditor">{{ $blog->detail }}</textarea>
                       </div>
 
-                      <div class="mb-3">
-                          <label>Image</label><br>
-                          @if($blog->image)
-                              <img src="{{ asset($blog->image) }}" width="80"><br><br>
-                          @endif
-                          <input type="file" name="image" class="form-control">
+                      <div class="row">
+                          <label>Image</label>
+                          <div class="col">
+                              <div class="fake-dropzone text-center mb-3">
+                                  <i class="bx bxs-cloud-upload"></i>
+                                  @if($blog->image)
+                                      <img src="{{ asset($blog->image) }}" width="80"><br><br>
+                                  @endif
+                                  <h6>Upload Blog Image</h6>
+                                  <input type="file" class="form-control mt-3" name="image" accept=".jpg,.jpeg,.png,.svg">
+                              </div>
+                          </div>
                       </div>
 
                       <button class="btn btn-success">Update Blog</button>

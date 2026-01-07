@@ -24,17 +24,21 @@
                     <div class="mode"><i class="moon" data-feather="moon"> </i></div>
                 </li>
                 <li class="profile-nav onhover-dropdown"> 
-                    <div class="media profile-media"><img class="b-r-10" src="{{asset('admin/images/dashboard/profile.png')}}" alt="">
+                    @php
+                        $admin = Auth::user();
+                        $photo = $admin && $admin->photo
+                                    ? asset($admin->photo)
+                                    : asset('admin/images/dashboard/profile.png');
+                    @endphp
+                    <div class="media profile-media"><img class="b-r-10" src="{{$photo}}" alt="">
                     <div class="media-body d-xxl-block d-none box-col-none">
                         <div class="d-flex align-items-center gap-2"> <span>Alex Mora </span><i class="middle fa fa-angle-down"> </i></div>
                         <p class="mb-0 font-roboto">Admin</p>
                     </div>
                     </div>
                     <ul class="profile-dropdown onhover-show-div">
-                    <li><a href="user-profile.html"><i data-feather="user"></i><span>My Profile</span></a></li>
-                    <li><a href="letter-box.html"><i data-feather="mail"></i><span>Inbox</span></a></li>
-                    <li> <a href="edit-profile.html"> <i data-feather="settings"></i><span>Settings</span></a></li>
-                    <li><a class="btn btn-pill btn-outline-primary btn-sm" href="login.html">Log Out</a></li>
+                    <li><a href="/portal/my-profile"><i data-feather="user"></i><span>My Profile</span></a></li>
+                    <li><a class="btn btn-pill btn-outline-primary btn-sm" href="/portal/logout">Log Out</a></li>
                     </ul>
                 </li>
                 </ul>
