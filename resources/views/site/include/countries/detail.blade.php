@@ -84,12 +84,16 @@
                                     </div>
                                 </div>
                             </div>
+                            @if(!empty($university->adm_url))
+                                <div class="card-content-bottom justify-content-center">
+                                    <a href="{{ $university->adm_url }}" 
+                                    target="_blank"
+                                    class="primary-btn1 px-3 py-2">
+                                        Apply Now
+                                    </a>
+                                </div>
+                            @endif
 
-                            <div class="card-content-bottom justify-content-center">
-                                <a href="{{ url('/contact') }}" class="primary-btn1 px-3 py-2">
-                                    Apply Now
-                                </a>
-                            </div>
 
                         </div>
                     </div>

@@ -18,6 +18,7 @@ class University extends Model
         'tuition_fee',
         'intake_months',
         'ielts_score',
+        'adm_url',
         'image',
         'status',
     ];

@@ -52,6 +52,7 @@ class AdminUniversitiesController extends Controller
             'tuition_fee'   => $request->tuition_fee,
             'intake_months' => implode(',', $request->intake_months ?? []),
             'ielts_score'   => $request->ielts_score,
+            'adm_url'       => $request->adm_url,
             'image'         => $imagePath,
             'status'        => $request->status,
         ]);
@@ -79,6 +80,7 @@ class AdminUniversitiesController extends Controller
             'tuition_fee'   => $request->tuition_fee,
             'intake_months' => implode(',', $request->intake_months ?? []),
             'ielts_score'   => $request->ielts_score,
+            'adm_url'       => $request->adm_url,
             'status'        => $request->status,
         ]);
 

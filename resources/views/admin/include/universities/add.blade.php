@@ -111,6 +111,16 @@
                 </div>
               </div>
 
+              {{-- Admission Link --}}
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label>Admission URL</label>
+                  <input type="text"
+                         name="adm_url"
+                         class="form-control">
+                </div>
+              </div>
+
               <!-- Intake Months (Checkboxes) -->
               <div class="mb-3">
                 <label class="d-block mb-2">Intake Months</label>
