@@ -24,6 +24,10 @@ class AdminContactInfoController extends Controller
             'whatsapp' => 'nullable|string',
             'city.*'   => 'required|string',
             'address.*'=> 'required|string',
+            'facebook' => 'nullable|url',
+            'instagram'=> 'nullable|url',
+            'linkedin' => 'nullable|url',
+            'twitter'  => 'nullable|url',
         ]);
 
         $addresses = [];
@@ -41,6 +45,10 @@ class AdminContactInfoController extends Controller
             'phone'     => $request->phone,
             'whatsapp'  => $request->whatsapp,
             'addresses' => $addresses,
+            'facebook'  => $request->facebook,
+            'instagram' => $request->instagram, 
+            'linkedin'  => $request->linkedin,
+            'twitter'   => $request->twitter,
         ]);
 
         sessionMsg('Success', 'Contact info saved successfully', 'success');
@@ -65,6 +73,10 @@ class AdminContactInfoController extends Controller
             'phone'     => $request->phone,
             'whatsapp'  => $request->whatsapp,
             'addresses' => $addresses,
+            'facebook'  => $request->facebook,
+            'instagram' => $request->instagram,
+            'linkedin'  => $request->linkedin,
+            'twitter'   => $request->twitter,
         ]);
 
         sessionMsg('Success', 'Contact info updated successfully', 'success');

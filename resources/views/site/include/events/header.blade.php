@@ -5,7 +5,7 @@
                 <div class="banner-content">
                     <h1>{{ ucwords(str_replace('-', ' ', $href)) }}</h1>
                     <ul class="breadcrumb-list">
-                        <li><a href="/courses">Courses</a></li>
+                        <li><a href="/events">Events</a></li>
                         <li>{{ ucwords(str_replace('-', ' ', $href)) }}</li>
                     </ul>
                 </div>

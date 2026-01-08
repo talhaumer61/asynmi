@@ -110,6 +110,15 @@
                     </svg><span>Appointment Requests</span></a>
                 </li>
                 <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title link-nav" href="/portal/queries">
+                    <svg class="stroke-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-chat')}}"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-chat')}}"></use>
+                    </svg><span>User Queries</span></a>
+                </li>
+                <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title link-nav" href="/portal/contact-info">
                     <svg class="stroke-icon">
                       <use href="{{asset('admin/svg/icon-sprite.svg#stroke-contact')}}"></use>

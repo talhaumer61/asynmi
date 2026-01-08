@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-lg-12 d-flex justify-content-center">
                 <div class="banner-content">
-                    <h1>About Us</h1>
+                    <h1>Contact Us</h1>
                     <ul class="breadcrumb-list">
                         <li><a href="/">Home</a></li>
-                        <li>About Us</li>
+                        <li>Contact Us</li>
                     </ul>
                 </div>
             </div>

@@ -57,7 +57,7 @@
                             Apply Now
                         </a>
 
-                        <a href="https://wa.me/xxxxxxxxx"
+                        <a href="{{ $globalContactInfo->whatsapp ? 'https://wa.me/'.$globalContactInfo->whatsapp : 'javascript:void(0)' }}"
                            class="btn btn-outline-success w-100">
                             WhatsApp Advisor
                         </a>

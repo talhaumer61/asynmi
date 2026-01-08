@@ -16,12 +16,12 @@
     <div class="topbar-right">
         <div class="social-icon-area">
             <ul>
-                <li><a href="https://www.facebook.com/"><i class="bx bxl-facebook"></i></a></li>
-                <li><a href="https://twitter.com/"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                <li><a href="{{ $globalContactInfo->facebook ? $globalContactInfo->facebook : 'javascript:void(0)' }}"><i class="bx bxl-facebook"></i></a></li>
+                <li><a href="{{ $globalContactInfo->twitter ? $globalContactInfo->twitter : 'javascript:void(0)' }}"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
                     <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"></path>
                     </svg></a></li>
-                <li><a href="https://www.linkedin.com/"><i class="bx bxl-pinterest-alt"></i></a></li>
-                <li><a href="https://www.instagram.com/"><i class="bx bxl-instagram"></i></a></li>
+                <li><a href="{{ $globalContactInfo->linkedin ? $globalContactInfo->linkedin : 'javascript:void(0)' }}"><i class="bx bxl-linkedin"></i></a></li>
+                <li><a href="{{ $globalContactInfo->instagram ? $globalContactInfo->instagram : 'javascript:void(0)' }}"><i class="bx bxl-instagram"></i></a></li>
             </ul>
         </div>
     </div>
@@ -78,8 +78,10 @@
             <li class="menu-item-has-children">
                 <a href="#" class="drop-down">More</a><i class="bi bi-plus dropdown-icon"></i>
                 <ul class="sub-menu">
+                        <li><a href="/events">Events</a></li>
                         <li><a href="/about-us">About Us</a></li>
                         <li><a href="/contact-us">Contact Us</a></li>
+                        <li><a href="/faqs">FAQs</a></li>
                 </ul>
             </li>
         </ul>

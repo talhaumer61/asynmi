@@ -82,85 +82,44 @@
             <div class="col-lg-7">
                 <div class="contact-form-area">
                     <h3>Reach Us Anytime</h3>
-                    <form>
+                    <form action="{{ route('user.query.store') }}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-lg-12 mb-20">
                                 <div class="form-inner">
                                     <label>Name*</label>
-                                    <input type="text" placeholder="Daniel Scoot">
+                                    <input type="text" name="name" placeholder="Your Name..." required>
                                 </div>
                             </div>
+
                             <div class="col-lg-6 mb-20">
                                 <div class="form-inner">
                                     <label>Phone</label>
-                                    <input type="text" placeholder="Phone Number...">
+                                    <input type="text" name="phone" placeholder="Phone Number...">
                                 </div>
                             </div>
+
                             <div class="col-lg-6 mb-20">
                                 <div class="form-inner">
-                                    <label>Email</label>
-                                    <input type="email" placeholder="Email Us....">
+                                    <label>Email*</label>
+                                    <input type="email" name="email" placeholder="Email...." required>
                                 </div>
                             </div>
-                            <div class="col-lg-6 mb-20">
+
+                            <div class="col-lg-12 mb-20">
                                 <div class="form-inner">
-                                    <label>Qualification</label>
-                                    <input type="text" placeholder="Qualification...">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mb-20">
-                                <div class="form-inner">
-                                    <label>CGPA/Percentage</label>
-                                    <input type="email" placeholder="CGPA/Percentage....">
-                                </div>
-                            </div>
-                            <div class="col-lg-12 mb-30">
-                                <label>Your City</label>
-                                <div class="styled-select-wrapper">
-                                    <select name="country" class="styled-select">
-                                        <option value="">Select a City</option>
-                                        <option>Lahore</option>
-                                        <option>Karachi</option>
-                                        <option>Islamabad</option>
-                                        <option>Rawalpindi</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="col-lg-12 mb-30">
-                                <label>Country of Interest</label>
-                                <div class="styled-select-wrapper">
-                                    <select name="country" class="styled-select">
-                                        <option value="">Select a Country</option>
-                                        <option>Pakistan</option>
-                                        <option>United States</option>
-                                        <option>United Kingdom</option>
-                                        <option>Saudi Arabia</option>
-                                        <option>Indonesia</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="col-lg-12 mb-30">
-                                <label>Course to Apply</label>
-                                <div class="styled-select-wrapper">
-                                    <select name="country" class="styled-select">
-                                        <option value="">Select a Course</option>
-                                        <option>General Science</option>
-                                        <option>Liberal Arts</option>
-                                        <option>Architecture</option>
-                                        <option>Civil Engineering</option>
-                                        <option>Communication & Media Studies</option>
-                                    </select>
+                                    <label>Subject</label>
+                                    <input type="text" name="subject" placeholder="Subject...">
                                 </div>
                             </div>
 
                             <div class="col-lg-12 mb-30">
                                 <div class="form-inner">
-                                    <label>Question/comments*</label>
-                                    <textarea placeholder="What’s on your mind"></textarea>
+                                    <label>Question/Message*</label>
+                                    <textarea name="message" placeholder="What’s on your mind" required></textarea>
                                 </div>
                             </div>
+
                             <div class="col-lg-12">
                                 <div class="form-inner">
                                     <button class="primary-btn1 btn-hover" type="submit">
@@ -170,8 +129,31 @@
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+@if(session('success'))
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert">
+        <div class="d-flex">
+            <div class="toast-body">
+                {{ session('success') }}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let toastEl = document.getElementById('successToast');
+        let toast = new bootstrap.Toast(toastEl, {
+            delay: 4000 // disappears after 4 seconds
+        });
+        toast.show();
+    });
+</script>
+@endif
+

@@ -13,6 +13,10 @@ class ContactInfo extends Model
         'phone',
         'whatsapp',
         'addresses',
+        'facebook',
+        'instagram', 
+        'linkedin',
+        'twitter',
     ];
 
     protected $casts = [

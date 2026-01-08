@@ -3,15 +3,17 @@
 use App\Http\Controllers\admin\AdminAboutUsController;
 use App\Http\Controllers\admin\AdminAdsController;
 use App\Http\Controllers\admin\AdminAppointmentController;
-use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\admin\AdminAuthController;
 use App\Http\Controllers\admin\AdminBannerController;
 use App\Http\Controllers\admin\AdminBlogsController;
 use App\Http\Controllers\admin\AdminContactInfoController;
 use App\Http\Controllers\admin\AdminCountriesController;
 use App\Http\Controllers\admin\AdminCoursesController;
 use App\Http\Controllers\admin\AdminEventsController;
+use App\Http\Controllers\admin\AdminFaqsController;
 use App\Http\Controllers\admin\AdminPartnersController;
 use App\Http\Controllers\admin\AdminProfileController;
+use App\Http\Controllers\admin\AdminQueriesController;
 use App\Http\Controllers\admin\AdminServicesController;
 use App\Http\Controllers\admin\AdminUniversitiesController;
 use App\Http\Controllers\site\AboutController;
@@ -20,6 +22,8 @@ use App\Http\Controllers\site\BlogsController;
 use App\Http\Controllers\site\ContactController;
 use App\Http\Controllers\site\CountriesController;
 use App\Http\Controllers\site\CoursesController;
+use App\Http\Controllers\site\EventsController;
+use App\Http\Controllers\site\FaqsController;
 use App\Http\Controllers\site\HomeController;
 use App\Http\Controllers\site\ServicesController;
 use App\Http\Middleware\AdminAuth;
@@ -44,11 +48,19 @@ Route::get('/services/{href}', [ServicesController::class, 'detail'])->name('ser
 Route::get('/courses', [CoursesController::class, 'index'])->name('courses');
 Route::get('/courses/{href}', [CoursesController::class, 'detail'])->name('courses.detail');
 
+// EVENTS
+Route::get('/events', [EventsController::class, 'index'])->name('events');
+Route::get('/events/{href}', [EventsController::class, 'detail'])->name('events.detail');
+
 // ABOUT US
 Route::get('/about-us', [AboutController::class, 'index'])->name('about-us');
 
+// FAQS
+Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs');
+
 // CONTACT US
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us');
+Route::post('/user-query', [ContactController::class, 'store'])->name('user.query.store');
 
 // APPOINTMENT
 Route::get('/book-an-appointment', [AppointmentController::class, 'index'])->name('appointment');
@@ -116,11 +128,19 @@ Route::middleware([AdminAuth::class])->group(function () {
         Route::post('/partners/store', [AdminPartnersController::class, 'store'])->name('admin.partners.store');
         Route::post('/partners/update/{id}', [AdminPartnersController::class, 'update'])->name('admin.partners.update');
         Route::delete('/partners/{id}', [AdminPartnersController::class, 'destroy'])->name('admin.partners.delete');
+        
+        Route::get('/faqs/{action?}/{id?}', [AdminFaqsController::class, 'index'])->name('admin.faqs');
+        Route::post('/faqs/store', [AdminFaqsController::class, 'store'])->name('admin.faqs.store');
+        Route::post('/faqs/update/{id}', [AdminFaqsController::class, 'update'])->name('admin.faqs.update');
+        Route::delete('/faqs/{id}', [AdminFaqsController::class, 'destroy'])->name('admin.faqs.delete');
 
         Route::get('/ads/{action?}/{id?}', [AdminAdsController::class, 'index'])->name('admin.ads');
         Route::post('/ads/store', [AdminAdsController::class, 'store'])->name('admin.ads.store');
         Route::post('/ads/update/{id}', [AdminAdsController::class, 'update'])->name('admin.ads.update');
         Route::delete('/ads/{id}', [AdminAdsController::class, 'destroy'])->name('admin.ads.delete');
+
+        Route::get('/queries', [AdminQueriesController::class, 'index'])->name('admin.queries');
+        Route::get('/queries/{id}', [AdminQueriesController::class, 'show'])->name('admin.queries.show');
 
         Route::get('/my-profile', [AdminProfileController::class, 'index'])->name('admin.profile');
         Route::put('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');

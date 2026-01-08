@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-lg-12 d-flex justify-content-center">
                 <div class="banner-content">
-                    <h1>{{ ucwords(str_replace('-', ' ', $href)) }}</h1>
+                    <h1>Events</h1>
                     <ul class="breadcrumb-list">
-                        <li><a href="/courses">Courses</a></li>
-                        <li>{{ ucwords(str_replace('-', ' ', $href)) }}</li>
+                        <li><a href="/">Home</a></li>
+                        <li>Events</li>
                     </ul>
                 </div>
             </div>

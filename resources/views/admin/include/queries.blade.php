@@ -1,0 +1,1 @@
+    @include('admin.include.queries.list')
