@@ -114,6 +114,17 @@ if ($currentHost === $adminDomain) {
             Route::post('/about-us/store', [AdminAboutUsController::class, 'store'])->name('admin.about.store');
             Route::post('/about-us/update/{id}', [AdminAboutUsController::class, 'update'])->name('admin.about.update');
 
+            // Banners
+            Route::get('/banners/{action?}/{id?}', [AdminBannerController::class, 'index'])->name('admin.banners');
+            Route::post('/banners/store', [AdminBannerController::class, 'store'])->name('admin.banners.store');
+            Route::post('/banners/update/{id}', [AdminBannerController::class, 'update'])->name('admin.banners.update');
+            Route::delete('/banners/{id}', [AdminBannerController::class, 'destroy'])->name('admin.banners.delete');
+        
+            // Contact Info
+            Route::get('/contact-info/{action?}', [AdminContactInfoController::class, 'index'])->name('admin.contact-info');
+            Route::post('/contact-info/store', [AdminContactInfoController::class, 'store'])->name('admin.contact-info.store');
+            Route::post('/contact-info/update/{id}', [AdminContactInfoController::class, 'update'])->name('admin.contact-info.update');
+
             // Ads
             Route::get('/ads/{action?}/{id?}', [AdminAdsController::class, 'index'])->name('admin.ads');
             Route::post('/ads/store', [AdminAdsController::class, 'store'])->name('admin.ads.store');

@@ -30,9 +30,9 @@
                                     ? asset($admin->photo)
                                     : asset('admin/images/dashboard/profile.png');
                     @endphp
-                    <div class="media profile-media"><img class="b-r-10" src="{{$photo}}" alt="">
+                    <div class="media profile-media"><img class="b-r-10" id="admin-profile" src="{{$photo}}" alt="">
                     <div class="media-body d-xxl-block d-none box-col-none">
-                        <div class="d-flex align-items-center gap-2"> <span>Alex Mora </span><i class="middle fa fa-angle-down"> </i></div>
+                        <div class="d-flex align-items-center gap-2"> <span>{{ $admin->name }} </span><i class="middle fa fa-angle-down"> </i></div>
                         <p class="mb-0 font-roboto">Admin</p>
                     </div>
                     </div>
