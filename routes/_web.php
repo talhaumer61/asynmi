@@ -17,6 +17,8 @@ use App\Http\Controllers\admin\AdminProfileController;
 use App\Http\Controllers\admin\AdminQueriesController;
 use App\Http\Controllers\admin\AdminServicesController;
 use App\Http\Controllers\admin\AdminUniversitiesController;
+use App\Http\Controllers\admin\AdminHeaderFooterController;
+use App\Http\Controllers\admin\AdminHomepageElementController;
 
 use App\Http\Controllers\site\AboutController;
 use App\Http\Controllers\site\AppointmentController;
@@ -142,6 +144,15 @@ if ($currentHost === $adminDomain) {
             // Profile
             Route::get('/my-profile', [AdminProfileController::class, 'index'])->name('admin.profile');
             Route::put('/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
+
+            // Header & Footer Settings
+            Route::get('/header-footer', [AdminHeaderFooterController::class, 'index'])->name('admin.header_footer');
+            Route::post('/header-footer/update', [AdminHeaderFooterController::class, 'update'])->name('admin.header_footer.update');
+
+            // Homepage Elements
+            Route::get('homepage-elements', [AdminHomepageElementController::class, 'index'])->name('homepage.elements.index');
+            Route::post('homepage-elements/store', [AdminHomepageElementController::class, 'store'])->name('homepage.elements.store');
+            Route::post('homepage-elements/update/{id}', [AdminHomepageElementController::class, 'update'])->name('homepage.elements.update');
 
         });
 

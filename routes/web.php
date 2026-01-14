@@ -11,6 +11,8 @@ use App\Http\Controllers\admin\AdminCountriesController;
 use App\Http\Controllers\admin\AdminCoursesController;
 use App\Http\Controllers\admin\AdminEventsController;
 use App\Http\Controllers\admin\AdminFaqsController;
+use App\Http\Controllers\admin\AdminHeaderFooterController;
+use App\Http\Controllers\admin\AdminHomepageElementController;
 use App\Http\Controllers\admin\AdminPartnersController;
 use App\Http\Controllers\admin\AdminProfileController;
 use App\Http\Controllers\admin\AdminQueriesController;
@@ -144,6 +146,13 @@ Route::middleware([AdminAuth::class])->group(function () {
 
         Route::get('/my-profile', [AdminProfileController::class, 'index'])->name('admin.profile');
         Route::put('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
+
+        Route::get('/header-footer', [AdminHeaderFooterController::class, 'index'])->name('admin.header_footer');
+        Route::post('/header-footer/update', [AdminHeaderFooterController::class, 'update'])->name('admin.header_footer.update');
+
+        Route::get('homepage-elements', [AdminHomepageElementController::class, 'index'])->name('homepage.elements.index');
+        Route::post('homepage-elements/store', [AdminHomepageElementController::class, 'store'])->name('homepage.elements.store');
+        Route::post('homepage-elements/update/{id}', [AdminHomepageElementController::class, 'update'])->name('homepage.elements.update');
 
     });
 

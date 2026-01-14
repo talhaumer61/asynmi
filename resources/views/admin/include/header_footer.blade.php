@@ -1,0 +1,1 @@
+    @include('admin.include.header_footer.list')

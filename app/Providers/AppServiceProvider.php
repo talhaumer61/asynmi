@@ -8,6 +8,7 @@ use App\Models\Country;
 use App\Models\Service;
 use App\Models\Course;
 use App\Models\ContactInfo;
+use App\Models\NavElement;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,12 +35,23 @@ class AppServiceProvider extends ServiceProvider
             // Contact Info (only ONE active record)
             $contactInfo = ContactInfo::where('status', 1)->first();
 
+            $headerNavElements = NavElement::where('location', 'header')
+            ->orderBy('id')
+            ->get();
+
+            $footerNavElements = NavElement::where('location', 'footer')
+            ->orderBy('id')
+            ->get();
+
+
             $view->with([
                 'globalCountries'   => $countries,
                 'globalServices'    => $services,
                 'globalCourses'     => $courses,
                 'globalContactInfo' => $contactInfo,
                 'globalFooterCountries' => $footerCountries,
+                'globalHeaderNavElements' => $headerNavElements,
+                'globalFooterNavElements' => $footerNavElements,
             ]);
         });
     }

@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 <div class="col-lg-12">
-                    <a href="#" class="process-card-img"><img src="{{asset('assets/img/cards/3.png')}}" alt=""></a>
+                    <a href="#" class="process-card-img"><img src="{{asset($homepageElement->how_to_apply ? $homepageElement->how_to_apply : 'assets/img/cards/3.png')}}" alt=""></a>
                 </div>
             </div>
         </div>

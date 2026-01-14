@@ -163,6 +163,24 @@
                       <use href="{{asset('admin/svg/icon-sprite.svg#stroke-user')}}"></use>
                     </svg><span>Partners</span></a>
                 </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title link-nav" href="/portal/header-footer">
+                    <svg class="stroke-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-charts')}}"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-charts')}}"></use>
+                    </svg><span>Header / Footer</span></a>
+                </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title link-nav" href="/portal/homepage-elements">
+                    <svg class="stroke-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-landing-page')}}"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-landing-page')}}"></use>
+                    </svg><span>Homepage</span></a>
+                </li>
               </ul>
               <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
             </div>

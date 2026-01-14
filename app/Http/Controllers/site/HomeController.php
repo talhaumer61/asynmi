@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Advertisement;
 use App\Models\Banner;
 use App\Models\Country;
+use App\Models\HomepageElement;
 use App\Models\Partner;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,8 @@ class HomeController extends Controller
 
         $partners = Partner::where('status', 1)->get();
 
-        return view('site.home', compact('banners', 'countries', 'ads', 'partners'));
+        $homepageElement = HomepageElement::first();
+
+        return view('site.home', compact('banners', 'countries', 'ads', 'partners', 'homepageElement'));
     }
 }
