@@ -48,6 +48,25 @@ class AdminHomepageElementController extends Controller
 
         $data['what_we_offer'] = $offers;
 
+        /* ================= COUNTERS ================= */
+        $counters = [];
+        if ($request->counter_name) {
+            foreach ($request->counter_name as $key => $name) {
+                $iconPath = null;
+                if (isset($request->counter_icon[$key])) {
+                    $iconName = time() . '_cnt_' . $request->counter_icon[$key]->getClientOriginalName();
+                    $request->counter_icon[$key]->move(upload_path('homepage/counters'), $iconName);
+                    $iconPath = 'uploads/homepage/counters/' . $iconName;
+                }
+                $counters[] = [
+                    'name'  => $name,
+                    'value' => $request->counter_value[$key] ?? '',
+                    'icon'  => $iconPath,
+                ];
+            }
+        }
+        $data['counters'] = $counters;
+
         HomepageElement::create($data);
 
         sessionMsg('success', 'Homepage elements added successfully', 'success');
@@ -98,6 +117,31 @@ class AdminHomepageElementController extends Controller
         }
 
         $data['what_we_offer'] = $offers;
+
+        /* ================= UPDATE COUNTERS ================= */
+        $counters = [];
+        if ($request->counter_name) {
+            foreach ($request->counter_name as $key => $name) {
+                $iconPath = $request->old_counter_icon[$key] ?? null;
+
+                if (isset($request->counter_icon[$key])) {
+                    // Delete old icon if it exists
+                    if ($iconPath && file_exists(public_path($iconPath))) {
+                        unlink(public_path($iconPath));
+                    }
+                    $iconName = time() . '_cnt_' . $request->counter_icon[$key]->getClientOriginalName();
+                    $request->counter_icon[$key]->move(upload_path('homepage/counters'), $iconName);
+                    $iconPath = 'uploads/homepage/counters/' . $iconName;
+                }
+
+                $counters[] = [
+                    'name'  => $name,
+                    'value' => $request->counter_value[$key] ?? '',
+                    'icon'  => $iconPath,
+                ];
+            }
+        }
+        $data['counters'] = $counters;
 
         $homepageElement->update($data);
 

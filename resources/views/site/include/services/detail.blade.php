@@ -33,12 +33,12 @@
             <div class="col-lg-8">
 
                 {{-- DETAIL --}}
-                <div class="service-content mb-60">
+                <div class="service-content mb-60 ck-content">
                     {!! $service->detail !!}
                 </div>
 
                 {{-- PROCESS (Optional Static UI Block) --}}
-                <div class="service-process mb-60">
+                {{-- <div class="service-process mb-60">
                     <h3 class="mb-30">How This Service Works</h3>
 
                     <div class="row g-4">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
@@ -75,7 +75,7 @@
                             Speak with our experts to get personalized guidance.
                         </p>
 
-                        <a href="{{ url('/contact') }}" class="btn btn-primary w-100 mb-2">
+                        <a href="{{ url('/contact-us') }}" class="btn btn-primary w-100 mb-2">
                             Request Consultation
                         </a>
 
@@ -85,7 +85,7 @@
                         </a>
                     </div>
 
-                    <div class="p-4 rounded shadow-sm bg-light">
+                    {{-- <div class="p-4 rounded shadow-sm bg-light">
                         <h6 class="mb-3">Why Choose Us?</h6>
                         <ul class="list-unstyled small">
                             <li>✔ Expert Team</li>
@@ -93,7 +93,7 @@
                             <li>✔ Proven Results</li>
                             <li>✔ Dedicated Support</li>
                         </ul>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>

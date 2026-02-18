@@ -35,7 +35,7 @@
             <div class="col-lg-8">
 
                 {{-- COURSE DETAIL --}}
-                <div class="course-detail-content mb-60">
+                <div class="course-detail-content mb-60 ck-content">
                     {!! $course->detail !!}
                 </div>
 

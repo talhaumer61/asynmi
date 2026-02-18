@@ -79,7 +79,7 @@
 
         {{-- ================= ROW 2 (DETAIL FULL WIDTH) ================= --}}
         <div class="row mt-4">
-            <div class="col-12">
+            <div class="col-12 ck-content">
                 {!! $blog->detail !!}
             </div>
         </div>
