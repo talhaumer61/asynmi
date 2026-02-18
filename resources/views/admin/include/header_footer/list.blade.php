@@ -45,57 +45,54 @@
                     @csrf
 
                     <div class="row">
+                        {{-- SECTION 1: COLUMN ORDERING --}}
+                        <div class="col-12 mb-4">
+                            <div class="card bg-secondary">
+                                <div class="card-body">
+                                    <h5>Footer Column Ordering & Visibility</h5>
+                                    <p class="text-muted small">Define the order of columns (1 comes first) and toggle entire sections.</p>
+                                    <div class="row">
+                                        @foreach($footerSections as $section)
+                                        <div class="col-md-3 border-end">
+                                            <label class="fw-bold">{{ $section->name }}</label>
+                                            <input type="number" name="sort_order[{{ $section->id }}]" 
+                                                value="{{ $section->sort_order }}" class="form-control mb-2">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="visible[]" 
+                                                    value="{{ $section->id }}" id="sec_{{ $section->id }}"
+                                                    {{ $section->is_visible ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="sec_{{ $section->id }}">Show Column</label>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                        {{-- HEADER --}}
+                        {{-- SECTION 2: INDIVIDUAL LINKS --}}
                         <div class="col-md-6">
-                            <h5 class="mb-3">Header Menu</h5>
-
+                            <h5>Header Menu</h5>
                             @foreach($headerElements as $item)
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input"
-                                        type="checkbox"
-                                        name="visible[]"
-                                        value="{{ $item->id }}"
-                                        id="header_{{ $item->id }}"
-                                        {{ $item->is_visible ? 'checked' : '' }}>
-
-                                    <label class="form-check-label fw-semibold"
-                                        for="header_{{ $item->id }}">
-                                        {{ $item->name }}
-                                    </label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="visible[]" value="{{ $item->id }}" {{ $item->is_visible ? 'checked' : '' }}>
+                                    <label class="form-check-label">{{ $item->name }}</label>
                                 </div>
                             @endforeach
                         </div>
 
-                        {{-- FOOTER --}}
                         <div class="col-md-6">
-                            <h5 class="mb-3">Footer Menu</h5>
-
+                            <h5>Footer Links (Items inside the column)</h5>
                             @foreach($footerElements as $item)
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input"
-                                        type="checkbox"
-                                        name="visible[]"
-                                        value="{{ $item->id }}"
-                                        id="footer_{{ $item->id }}"
-                                        {{ $item->is_visible ? 'checked' : '' }}>
-
-                                    <label class="form-check-label fw-semibold"
-                                        for="footer_{{ $item->id }}">
-                                        {{ $item->name }}
-                                    </label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="visible[]" value="{{ $item->id }}" {{ $item->is_visible ? 'checked' : '' }}>
+                                    <label class="form-check-label">{{ $item->name }}</label>
                                 </div>
                             @endforeach
                         </div>
-
                     </div>
 
-                    <div class="text-end mt-4">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-save"></i> Save Changes
-                        </button>
-                    </div>
-
+                    <button type="submit" class="btn btn-primary mt-3">Save Layout</button>
                 </form>
 
             </div>

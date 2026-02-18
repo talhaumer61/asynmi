@@ -35,7 +35,7 @@
                     <div class="swiper destination-card2-slider mb-50">
                         <div class="swiper-wrapper">
                              @foreach($countries as $country)
-                                <div class="swiper-slide">
+                                <div class="swiper-slide my-0">
                                     <div class="destination-card2">
                                         <a href="{{ url('/country/'.$country->href) }}"
                                         class="destination-card-img">

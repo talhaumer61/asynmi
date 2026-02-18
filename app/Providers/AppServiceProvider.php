@@ -8,6 +8,7 @@ use App\Models\Country;
 use App\Models\Service;
 use App\Models\Course;
 use App\Models\ContactInfo;
+use App\Models\HomepageElement;
 use App\Models\NavElement;
 
 class AppServiceProvider extends ServiceProvider
@@ -43,6 +44,8 @@ class AppServiceProvider extends ServiceProvider
             ->orderBy('id')
             ->get();
 
+            $footerCta = HomepageElement::where('status', 1)->first();
+
 
             $view->with([
                 'globalCountries'   => $countries,
@@ -52,6 +55,7 @@ class AppServiceProvider extends ServiceProvider
                 'globalFooterCountries' => $footerCountries,
                 'globalHeaderNavElements' => $headerNavElements,
                 'globalFooterNavElements' => $footerNavElements,
+                'globalFooterCta' => $footerCta,
             ]);
         });
     }

@@ -15,5 +15,6 @@ class NavElement extends Model
         'location',
         'name',
         'is_visible',
+        'sort_order',
     ];
 }

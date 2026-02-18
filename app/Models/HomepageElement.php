@@ -10,6 +10,9 @@ class HomepageElement extends Model
         'how_to_apply',
         'what_we_offer',
         'counters',
+        'footer_cta',
+        'btn_text',
+        'url',
         'status',
     ];
 

@@ -55,19 +55,19 @@
 <header class="header-area style-1">
     {{-- Mobile Logo --}}
     <div class="header-logo d-lg-none d-flex">
-        <a href="index.html"><img alt="image" class="img-fluid" style="height: 80px; width:120px;" src="{{asset('assets/img/logo.png')}}"></a>
+        <a href="/"><img alt="image" class="img-fluid" style="height: 80px; width:auto;" src="{{asset('assets/img/logo.png')}}"></a>
     </div>
 
     {{-- Desktop Logo --}}
     <div class="company-logo d-lg-flex d-none">
-        <a href="index.html"><img style="height: 80px; width:120px;" src="{{asset('assets/img/logo.png')}}" alt=""></a>
+        <a href="/"><img style="height: 80px; width:auto;" src="{{asset('assets/img/logo.png')}}" alt=""></a>
     </div>
 
     <div class="main-menu">
         {{-- Mobile Menu Logo --}}
         <div class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
             <div class="mobile-logo-wrap">
-                <a href="index.html"><img alt="image" style="height: 80px; width:120px;" src="{{asset('assets/img/logo.png')}}"></a>
+                <a href="/"><img alt="image" style="height: 80px; width:auto;" src="{{asset('assets/img/logo.png')}}"></a>
             </div>
             <div class="menu-close-btn">
                 <i class="bi bi-x"></i>

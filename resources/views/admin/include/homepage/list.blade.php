@@ -39,6 +39,24 @@
                         @endif
                     </div>
 
+                    {{-- Footer CTA Section --}}
+                    <div class="mb-3 border-top pt-3">
+                        <label class="form-label fw-bold">Footer Call to Action (CTA)</label>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <textarea name="footer_cta" class="form-control" rows="2" placeholder="CTA Text (e.g. Ready to start your journey?)">{{ $homepageElement?->footer_cta }}</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Button Text</label>
+                                <input type="text" name="btn_text" value="{{ $homepageElement?->btn_text }}" class="form-control" placeholder="e.g. Contact Us">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Button URL</label>
+                                <input type="text" name="url" value="{{ $homepageElement?->url }}" class="form-control" placeholder="e.g. https://example.com/contact">
+                            </div>
+                        </div>
+                    </div>
+
                     {{-- What We Offer --}}
                     <div class="mb-3">
                         <label class="form-label d-flex justify-content-between">

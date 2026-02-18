@@ -28,117 +28,80 @@
                                 </a>
                             </div>
                             <h3>
-                                Want <span>to Take <br></span> Study Abroad<span>?</span>
+                                {{ $globalFooterCta?->footer_cta ?? 'Ready to start your journey?' }}
                             </h3>
-                            <a href="/book-an-appointment" class="primary-btn1 mt-3">
-                                Get in Touch
+                            <a href="{{ $globalFooterCta?->url ?? '#' }}" class="primary-btn1 mt-3">
+                                {{ $globalFooterCta?->btn_text ?? 'Book an Appointment' }}
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="row g-lg-4 gy-5 justify-content-center">
-                    <div class="col-lg-3 col-md-6 col-sm-6 d-flex justify-content-lg-center justify-content-md-start">
-                        <div class="footer-widget">
-                            <div class="widget-title">
-                                <h5>Quick Link</h5>
-                            </div>
-                            <ul class="widget-list">
+                    @php
+                        // Get the sections ordered by your preference
+                        $activeSections = $globalFooterNavElements->where('type', 'section')
+                                            ->where('is_visible', 1)
+                                            ->sortBy('sort_order');
+                    @endphp
 
-                                @if(footerVisible($globalFooterNavElements, 'About Us'))
-                                    <li><a href="/about-us">About Us</a></li>
-                                @endif
-
-                                @if(footerVisible($globalFooterNavElements, 'Contact Us'))
-                                    <li><a href="/contact-us">Contact Us</a></li>
-                                @endif
-
-                                @if(footerVisible($globalFooterNavElements, 'Book an Appointment'))
-                                <li><a href="/book-an-appointment">Book an Appointment</a></li>
-                                @endif
-
-                                @if(footerVisible($globalFooterNavElements, 'Events'))
-                                    <li><a href="/events">Events</a></li>
-                                @endif
-
-                                @if(footerVisible($globalFooterNavElements, 'FAQs'))
-                                    <li><a href="/faqs">FAQs</a></li>
-                                @endif
-
-                            </ul>
-                        </div>
-
-                    </div>
-                    @if(footerVisible($globalFooterNavElements, 'Countries'))
-                        <div class="col-lg-3 col-md-6 col-sm-6 d-flex justify-content-lg-center justify-content-md-start">
+                    @foreach($activeSections as $column)
+                        <div class="col-lg-3 col-md-6 col-sm-6 d-flex justify-content-lg-center">
                             <div class="footer-widget">
                                 <div class="widget-title">
-                                    <h5>Countries</h5>
+                                    <h5>{{ $column->name }}</h5>
                                 </div>
                                 <ul class="widget-list">
-                                    @foreach($globalFooterCountries as $country)
-                                        <li><a href="/countries/{{ $country->href }}">{{ $country->name }}</a></li>
-                                    @endforeach
+                                    @if($column->name == 'Quick Link')
+                                        {{-- Render items marked as footer links --}}
+                                        @foreach($globalFooterNavElements->where('type', 'link')->where('location', 'footer')->where('is_visible', 1) as $link)
+                                            <li><a href="/{{ Str::slug($link->name) }}">{{ $link->name }}</a></li>
+                                        @endforeach
+                                    
+                                    @elseif($column->name == 'Countries')
+                                        @foreach($globalFooterCountries as $country)
+                                            <li><a href="/countries/{{ $country->href }}">{{ $country->name }}</a></li>
+                                        @endforeach
+
+                                    @elseif($column->name == 'Services')
+                                        @foreach($globalServices as $service)
+                                            <li><a href="/services/{{ $service->href }}">{{ $service->name }}</a></li>
+                                        @endforeach
+
+                                    @elseif($column->name == 'Courses')
+                                        @foreach($globalCourses as $course)
+                                            <li><a href="/courses/{{ $course->href }}">{{ $course->name }}</a></li>
+                                        @endforeach
+                                    @endif
                                 </ul>
                             </div>
                         </div>
-                    @endif
-                    @if(footerVisible($globalFooterNavElements, 'Services'))
+                    @endforeach
+
+                    @if($globalContactInfo->addresses && count($globalContactInfo->addresses) > 0)
                         <div class="col-lg-3 col-md-6 col-sm-6 d-flex justify-content-lg-center justify-content-md-start">
                             <div class="footer-widget">
-                                <div class="widget-title">
-                                    <h5>Services</h5>
-                                </div>
-                                <ul class="widget-list">
-                                    @foreach($globalServices as $service)
-                                        <li>
-                                            <a href="/services/{{ $service->href }}">
-                                                {{ $service->name }}
-                                            </a>
-                                        </li>
+                                <div class="single-contact mb-40">
+                                    <div class="widget-title">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                            <g clip-path="url(#clip0_1137_183)">
+                                                <path
+                                                    d="M14.3281 3.08241C13.2357 1.19719 11.2954 0.0454395 9.13767 0.00142383C9.04556 -0.000474609 8.95285 -0.000474609 8.86071 0.00142383C6.70303 0.0454395 4.76268 1.19719 3.67024 3.08241C2.5536 5.0094 2.52305 7.32408 3.5885 9.27424L8.05204 17.4441C8.05405 17.4477 8.05605 17.4513 8.05812 17.4549C8.25451 17.7963 8.60632 18 8.99926 18C9.39216 18 9.74397 17.7962 9.94032 17.4549C9.94239 17.4513 9.9444 17.4477 9.9464 17.4441L14.4099 9.27424C15.4753 7.32408 15.4448 5.0094 14.3281 3.08241ZM8.99919 8.15627C7.60345 8.15627 6.46794 7.02076 6.46794 5.62502C6.46794 4.22928 7.60345 3.09377 8.99919 3.09377C10.3949 3.09377 11.5304 4.22928 11.5304 5.62502C11.5304 7.02076 10.395 8.15627 8.99919 8.15627Z"/>
+                                            </g>
+                                        </svg>
+                                        <h5>Address</h5>
+                                    </div>
+                                    @foreach($globalContactInfo->addresses as $address)
+                                        <p class="mb-1">
+                                            <span class="fw-bold ">{{ $address['city'] }} - </span>
+                                            {{ $address['address'] }}
+                                        </p>
                                     @endforeach
-                                </ul>
+                                </div>
                             </div>
                         </div>
                     @endif
-                    @if(footerVisible($globalFooterNavElements, 'Courses'))
-                        <div class="col-lg-3 col-md-6 col-sm-6 d-flex justify-content-lg-center justify-content-md-start">
-                            <div class="footer-widget">
-                                <div class="widget-title">
-                                    <h5>Courses</h5>
-                                </div>
-                                <ul class="widget-list">
-                                    @foreach($globalCourses as $course)
-                                        <li>
-                                            <a href="/courses/{{ $course->href }}">
-                                                {{ $course->name }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    @endif
-                    <div class="col-lg-3 col-md-6 col-sm-6 d-flex justify-content-lg-center justify-content-md-start">
-                        <div class="footer-widget">
-                            <div class="single-contact mb-40">
-                                <div class="widget-title">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                                        <g clip-path="url(#clip0_1137_183)">
-                                            <path
-                                                d="M14.3281 3.08241C13.2357 1.19719 11.2954 0.0454395 9.13767 0.00142383C9.04556 -0.000474609 8.95285 -0.000474609 8.86071 0.00142383C6.70303 0.0454395 4.76268 1.19719 3.67024 3.08241C2.5536 5.0094 2.52305 7.32408 3.5885 9.27424L8.05204 17.4441C8.05405 17.4477 8.05605 17.4513 8.05812 17.4549C8.25451 17.7963 8.60632 18 8.99926 18C9.39216 18 9.74397 17.7962 9.94032 17.4549C9.94239 17.4513 9.9444 17.4477 9.9464 17.4441L14.4099 9.27424C15.4753 7.32408 15.4448 5.0094 14.3281 3.08241ZM8.99919 8.15627C7.60345 8.15627 6.46794 7.02076 6.46794 5.62502C6.46794 4.22928 7.60345 3.09377 8.99919 3.09377C10.3949 3.09377 11.5304 4.22928 11.5304 5.62502C11.5304 7.02076 10.395 8.15627 8.99919 8.15627Z"/>
-                                        </g>
-                                    </svg>
-                                    <h5>Address</h5>
-                                </div>
-                                @foreach($globalContactInfo->addresses as $address)
-                                    <p class="mb-1">
-                                        <span class="fw-bold ">{{ $address['city'] }} - </span>
-                                        {{ $address['address'] }}
-                                    </p>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
+
+                    {{-- Address Column (Keep this separate or add as a section too) --}}
                 </div>
             </div>
             <div class="footer-bottom">

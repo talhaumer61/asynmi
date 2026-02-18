@@ -67,6 +67,10 @@ class AdminHomepageElementController extends Controller
         }
         $data['counters'] = $counters;
 
+        $data['footer_cta'] = $request->footer_cta;
+        $data['btn_text']   = $request->btn_text;
+        $data['url']        = $request->url;
+
         HomepageElement::create($data);
 
         sessionMsg('success', 'Homepage elements added successfully', 'success');
@@ -142,6 +146,10 @@ class AdminHomepageElementController extends Controller
             }
         }
         $data['counters'] = $counters;
+
+        $data['footer_cta'] = $request->footer_cta;
+        $data['btn_text']   = $request->btn_text;
+        $data['url']        = $request->url;
 
         $homepageElement->update($data);
 

@@ -10117,7 +10117,8 @@ header.style-3.four .nav-right .icon-list li:first-child svg {
   18.Home1 Footer section
 ========================================*/
 .footer-section {
-  background-image: url(../img/footer-bg.png), linear-gradient(180deg, #1d231f 0%, #1d231f 100%);
+  background-image: url(../img/footer-bg.png), linear-gradient(180deg, #707271 0%, #707271 100%);
+  /* background-image: url(../img/footer-bg.png), linear-gradient(180deg, #63AB45 0%, #63AB45 100%); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
