@@ -130,11 +130,16 @@
         </ul>
 
         {{-- Mobile Hotline --}}
-        <div class="hotline-area d-lg-none d-flex">
+        <div class="hotline-area d-lg-none d-flex mt-1 mb-3">
             <div class="content">
                 <span>To More Inquiry</span>
                 <h6><a href="tel:{{ $globalContactInfo->phone }}">{{ $globalContactInfo->phone }}</a></h6>
             </div>
+        </div>
+        <div class="d-flex d-lg-none justify-content-center">
+            <a href="https://lms.asynmi.org/" class="secondary-btn2" target="_blank">
+                Visit LMS
+            </a>
         </div>
     </div>
 
@@ -146,6 +151,9 @@
                     {{-- Hotline SVG Path --}}
                 </svg>
             </div>
+            <a href="https://lms.asynmi.org/" class="secondary-btn2" target="_blank">
+                Visit LMS
+            </a>
             <div class="content">
                 <span>To More Inquiry</span>
                 <h6><a href="tel:{{ $globalContactInfo->phone }}">{{ $globalContactInfo->phone }}</a></h6>
