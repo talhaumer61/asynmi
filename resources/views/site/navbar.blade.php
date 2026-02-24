@@ -137,7 +137,7 @@
             </div>
         </div>
         <div class="d-flex d-lg-none justify-content-center">
-            <a href="https://lms.asynmi.org/" class="secondary-btn2" target="_blank">
+            <a href="https://lms.asynmi.org/" class="primary-btn1 py-2" target="_blank">
                 Visit LMS
             </a>
         </div>
@@ -151,7 +151,7 @@
                     {{-- Hotline SVG Path --}}
                 </svg>
             </div>
-            <a href="https://lms.asynmi.org/" class="secondary-btn2" target="_blank">
+            <a href="https://lms.asynmi.org/" class="primary-btn1 py-2" target="_blank">
                 Visit LMS
             </a>
             <div class="content">

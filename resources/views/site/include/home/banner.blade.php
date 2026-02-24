@@ -19,8 +19,8 @@
                                             @endif
 
                                             <div class="banner-content-bottom">
-                                                <a href="tel:{{ $globalContactInfo->phone }}" class="btn-inquiry">
-                                                    <i class="bi bi-telephone-fill"></i>
+                                                <a href="{{ $globalContactInfo->whatsapp ? 'https://wa.me/'.$globalContactInfo->whatsapp : 'javascript:void(0)' }}" class="btn-inquiry">
+                                                    <i class="bi bi-whatsapp"></i>
                                                     <div class="text-content">
                                                         <span>To More Inquiry</span>
                                                         <strong>{{ $globalContactInfo->phone }}</strong>

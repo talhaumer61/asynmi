@@ -36,7 +36,7 @@
                     $bg = $gradients[$loop->index % count($gradients)];
                 @endphp
                 <div class="col-xl-4 col-md-6">
-                    <div class="feature-card" style="background: {{ $bg }}">
+                    <div class="feature-card" style="background: #c82232; color: white;">
                         <div class="feature-card-icon">
 
                             @if(!empty($offer['icon']))

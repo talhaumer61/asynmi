@@ -181,6 +181,15 @@
                       <use href="{{asset('admin/svg/icon-sprite.svg#stroke-landing-page')}}"></use>
                     </svg><span>Homepage</span></a>
                 </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title link-nav" href="/portal/newsletter">
+                    <svg class="stroke-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-email')}}"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="{{asset('admin/svg/icon-sprite.svg#stroke-email')}}"></use>
+                    </svg><span>Newsletter</span></a>
+                </li>
               </ul>
               <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
             </div>

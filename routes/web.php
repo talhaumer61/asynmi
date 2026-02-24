@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\AdminEventsController;
 use App\Http\Controllers\admin\AdminFaqsController;
 use App\Http\Controllers\admin\AdminHeaderFooterController;
 use App\Http\Controllers\admin\AdminHomepageElementController;
+use App\Http\Controllers\admin\AdminNewsletterController;
 use App\Http\Controllers\admin\AdminPartnersController;
 use App\Http\Controllers\admin\AdminProfileController;
 use App\Http\Controllers\admin\AdminQueriesController;
@@ -27,6 +28,7 @@ use App\Http\Controllers\site\CoursesController;
 use App\Http\Controllers\site\EventsController;
 use App\Http\Controllers\site\FaqsController;
 use App\Http\Controllers\site\HomeController;
+use App\Http\Controllers\site\NewsletterController;
 use App\Http\Controllers\site\ServicesController;
 use App\Http\Middleware\AdminAuth;
 use Illuminate\Support\Facades\Route;
@@ -67,6 +69,9 @@ Route::post('/user-query', [ContactController::class, 'store'])->name('user.quer
 // APPOINTMENT
 Route::get('/book-an-appointment', [AppointmentController::class, 'index'])->name('appointment');
 Route::post('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
+
+// NEWSLETTER
+Route::post('/newsletter-subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
 // ---------------- ADMIN AUTH ---------------- //
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
@@ -153,6 +158,9 @@ Route::middleware([AdminAuth::class])->group(function () {
         Route::get('homepage-elements', [AdminHomepageElementController::class, 'index'])->name('homepage.elements.index');
         Route::post('homepage-elements/store', [AdminHomepageElementController::class, 'store'])->name('homepage.elements.store');
         Route::post('homepage-elements/update/{id}', [AdminHomepageElementController::class, 'update'])->name('homepage.elements.update');
+
+        Route::get('/newsletter', [AdminNewsletterController::class, 'index'])->name('newsletter.index');
+        Route::delete('/newsletter/{id}', [AdminNewsletterController::class, 'destroy'])->name('newsletter.destroy');
 
     });
 

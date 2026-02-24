@@ -72,7 +72,7 @@
                                     </div>
                                 </div>
                             @endif
-                            <a href="{{ url('/countries') }}" class="secondary-btn2">
+                            <a href="{{ url('/countries') }}" class="primary-btn1">
                                 View All Countries
                             </a>
                         </div>

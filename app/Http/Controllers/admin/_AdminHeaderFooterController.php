@@ -10,32 +10,28 @@ class AdminHeaderFooterController extends Controller
 {
     public function index()
     {
-        // Get Header elements
         $headerElements = NavElement::where('location', 'header')->get();
+        $footerElements = NavElement::where('location', 'footer')->where('type', 'link')->get();
 
-        // Get Footer links ordered by their sort_order
-        $footerElements = NavElement::where('location', 'footer')
-            ->where('type', 'link')
-            ->orderBy('sort_order')
-            ->get();
+        // Footer Sections (The columns)
+        $footerSections = NavElement::where('location', 'footer')->where('type', 'section')->orderBy('sort_order')->get();
 
-        return view('admin.header_footer', compact('headerElements', 'footerElements'));
+        return view('admin.header_footer', compact('headerElements', 'footerElements', 'footerSections'));
     }
 
     public function update(Request $request)
     {
         $visibleIds = $request->input('visible', []);
-        $sortOrders = $request->input('sort_order', []); // Now targeting footer links
+        $sortOrders = $request->input('sort_order', []);
 
-        // Reset visibility for all (Header and Footer)
+        // First hide all
         NavElement::query()->update(['is_visible' => 0]);
 
-        // Enable selected ones
+        // Enable selected
         if (!empty($visibleIds)) {
             NavElement::whereIn('id', $visibleIds)->update(['is_visible' => 1]);
         }
-
-        // Update Sort Order for the specific IDs provided (Footer Links)
+        // Update Sort Order for Sections
         foreach ($sortOrders as $id => $order) {
             NavElement::where('id', $id)->update(['sort_order' => $order ?? 0]);
         }
