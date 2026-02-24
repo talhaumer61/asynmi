@@ -27,7 +27,7 @@
                 <div class="col-12"> 
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="index.html">
+                            <a href="/">
                                 <svg class="stroke-icon">
                                     <use href="{{asset('admin/svg/icon-sprite.svg#stroke-home')}}"></use>
                                 </svg>

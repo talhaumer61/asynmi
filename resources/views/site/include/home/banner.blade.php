@@ -18,7 +18,7 @@
                                                 <h1>{{ $banner->title }}</h1>
                                             @endif
 
-                                            <div class="banner-content-bottom">
+                                            {{-- <div class="banner-content-bottom">
                                                 <a href="{{ $globalContactInfo->whatsapp ? 'https://wa.me/'.$globalContactInfo->whatsapp : 'javascript:void(0)' }}" class="btn-inquiry">
                                                     <i class="bi bi-whatsapp"></i>
                                                     <div class="text-content">
@@ -26,7 +26,7 @@
                                                         <strong>{{ $globalContactInfo->phone }}</strong>
                                                     </div>
                                                 </a>
-                                            </div>
+                                            </div> --}}
 
                                         </div>
                                     </div>

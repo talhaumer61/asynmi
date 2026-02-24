@@ -24,7 +24,7 @@
      <div class="right-sidebar-menu">
         <div class="sidebar-logo-area d-flex justify-content-between align-items-center">
             <div class="sidebar-logo-wrap">
-                <a href="index.html"><img alt="image" src="{{asset('assets/img/logo.svg')}}"></a>
+                <a href="/"><img alt="image" src="{{asset('assets/img/logo.svg')}}"></a>
             </div>
             <div class="right-sidebar-close-btn">
                 <i class="bi bi-x"></i>
@@ -334,12 +334,12 @@
     <!-- Start header section -->
     <header class="header-area style-2">
         <div class="header-logo">
-            <a href="index.html"><img alt="image" class="img-fluid" src="{{asset('assets/img/logo2.svg')}}"></a>
+            <a href="/"><img alt="image" class="img-fluid" src="{{asset('assets/img/logo2.svg')}}"></a>
         </div>
         <div class="main-menu">
             <div class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
                 <div class="mobile-logo-wrap">
-                    <a href="index.html"><img alt="image" src="{{asset('assets/img/logo2.svg')}}"></a>
+                    <a href="/"><img alt="image" src="{{asset('assets/img/logo2.svg')}}"></a>
                 </div>
                 <div class="menu-close-btn">
                     <i class="bi bi-x"></i>

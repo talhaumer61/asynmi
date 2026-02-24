@@ -6,6 +6,29 @@
     }
 @endphp
 <style>
+    .whatsapp-float {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: #25D366;
+        color: #fff;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 28px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        z-index: 9999;
+        transition: all 0.3s ease;
+    }
+    .whatsapp-float:hover {
+        background-color: #1ebd5a;
+        transform: scale(1.1);
+    }
+    .whatsapp-float i {
+        vertical-align: middle;
+    }
     .newsletter-widget h5 {
         letter-spacing: 1px;
     }
@@ -42,21 +65,32 @@
             <div class="row g-lg-4 gy-5">
 
                 {{-- Column 1: Quick Links & Address --}}
-                <div class="col-lg-5 col-md-6">
+                <div class="col-lg-5 col-12">
                     <div class="footer-widget">
-                        <div class="widget-title">
-                            <h5>Quick Links</h5>
-                        </div>
-                        <ul class="widget-list">
-                            {{-- Now Sorted by sort_order and filtered by is_visible --}}
-                            @foreach($globalFooterNavElements->where('type', 'link')->where('location', 'footer')->where('is_visible', 1)->sortBy('sort_order') as $link)
-                                <li>
-                                    <a href="/{{ Str::slug($link->name) }}">
-                                        {{ $link->name }}
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
+                        
+                        {{-- Get only visible footer links once to avoid repeating logic --}}
+                        @php
+                            $visibleFooterLinks = $globalFooterNavElements->where('type', 'link')
+                                                    ->where('location', 'footer')
+                                                    ->where('is_visible', 1)
+                                                    ->sortBy('sort_order');
+                        @endphp
+
+                        {{-- Only show the Heading and List if there are visible links --}}
+                        @if($visibleFooterLinks->isNotEmpty())
+                            <div class="widget-title">
+                                <h5>Quick Links</h5>
+                            </div>
+                            <ul class="widget-list">
+                                @foreach($visibleFooterLinks as $link)
+                                    <li>
+                                        <a href="/{{ Str::slug($link->name) }}">
+                                            {{ $link->name }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
 
                         {{-- Address Section --}}
                         @if($globalContactInfo->addresses && count($globalContactInfo->addresses) > 0)
@@ -77,7 +111,7 @@
                 </div>
 
                 {{-- Column 2: Enhanced Newsletter --}}
-                <div class="col-lg-7 col-md-6">
+                <div class="col-lg-7 col-12">
                     <div class="footer-widget newsletter-widget p-4 rounded" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.05);">
                         <div class="widget-title">
                             <h5>Stay Informed</h5>
@@ -126,5 +160,17 @@
         </div>
     </div>
 </footer>
+@if (!empty($globalContactInfo->whatsapp))
+    <a href="https://wa.me/{{ $globalContactInfo->whatsapp }}" 
+        target="_blank" 
+        class="whatsapp-float" 
+        aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+@else
+    <a href="javascript:void(0)" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+@endif
 
 

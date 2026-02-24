@@ -75,7 +75,7 @@
                             Speak with our experts to get personalized guidance.
                         </p>
 
-                        <a href="{{ url('/contact-us') }}" class="btn btn-primary w-100 mb-2">
+                        <a href="{{ url('/contact-us') }}" class="btn text-white w-100 mb-2" style="background: var(--primary-color1);">
                             Request Consultation
                         </a>
 
