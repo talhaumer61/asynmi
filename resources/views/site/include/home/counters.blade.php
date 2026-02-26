@@ -5,7 +5,7 @@
                 
                 @if($homepageElement?->counters)
                     @foreach($homepageElement->counters as $counter)
-                        <div class="col-lg-4 col-sm-6 divider d-flex justify-content-sm-center">
+                        <div class="col-lg-4 col-sm-6 divider d-flex justify-content-center">
                             <div class="single-activity">
                                 <div class="icon">
                                     {{-- Display uploaded icon if it exists, otherwise a default icon --}}
