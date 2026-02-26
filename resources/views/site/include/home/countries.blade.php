@@ -59,7 +59,7 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="slide-and-view-btn-grp">
+                    <div class="slide-and-view-btn-grp {{($countries->count() < 4) ? 'd-flex justify-content-center' : ''}}">
                             @if($countries->count() > 4)
                                 <div class="slider-btn-grp3 two">
                                     <div class="slider-btn destination-card2-prev">
